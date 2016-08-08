@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -66,3 +66,32 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.block.service.text:
+            contexts: [admin]
+
+
+sonata_admin:
+    title: Mr and Ms Pet
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                      content: >
+                          <h2>Welcome to the Product edition page</h2>
+                          <p>This is a <code>sonata.block.service.text</code> from the Block
+                          Bundle, you can create and add new block in these area by configuring
+                          the <code>sonata_admin</code> section.</p> <br /> For instance, here
+                          a RSS feed parser (<code>sonata.block.service.rss</code>):
