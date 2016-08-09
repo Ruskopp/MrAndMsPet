@@ -20,12 +20,22 @@ class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Create your product women.')
+            ->with('Create your product women.', array(
+                'bg-color' => 'red',
+                ))
                 ->add('title', 'text', array(
                     'label' => 'Products title'
                 ))
                 ->add('description', 'textarea')
-                ->add('category', 'text')
+                ->add('category', 'choice', array('choices' => array(
+                    'odeca' => 'odeca',
+                    'obuca' => 'obuca',
+                    'hrana' => 'hrana',
+                    'nakit' => 'nakit',
+                )))
+            ->add('image', 'file', array(
+                'required' => false
+            ))
             ->end();
     }
 

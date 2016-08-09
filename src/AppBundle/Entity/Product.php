@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity()
@@ -43,6 +44,13 @@ class Product
      * @ORM\Column(type="string", length=100,nullable=true)
      */
     protected $category;
+
+    /**
+     * @var UploadedFile
+     *
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    protected $image;
 
 
 
@@ -126,5 +134,29 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Product
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
