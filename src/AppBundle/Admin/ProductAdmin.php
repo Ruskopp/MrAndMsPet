@@ -20,22 +20,33 @@ class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Create your product women.', array(
-                'bg-color' => 'red',
-                ))
+            ->with('Public data', array(
+              'class' => 'col-sm-7'
+            ))
                 ->add('title', 'text', array(
                     'label' => 'Products title'
                 ))
-                ->add('description', 'textarea')
                 ->add('category', 'choice', array('choices' => array(
-                    'odeca' => 'odeca',
-                    'obuca' => 'obuca',
-                    'hrana' => 'hrana',
-                    'nakit' => 'nakit',
+                    'PAS - Odeca' => 'PAS - Odeca',
+                    'PAS - Aksesoari' => 'PAS - Aksesoari',
+                    'PAS - Krevet' => 'PAS - Krevet',
+                    'PAS - Spa' => 'PAS - Spa',
+                    'PAS - Igracke' => 'PAS - Igracke',
+                    'PAS - Posude' => 'PAS - Posude',
                 )))
             ->add('image', 'file', array(
                 'required' => false
             ))
+            ->end()
+            ->with('Private data', array(
+                'class' => 'col-sm-5'
+            ))
+                ->add('xs', null, array('label'=> 'Extra small [ XS ]'))
+                ->add('s', null, array('label'=> 'Small [ S ]'))
+                ->add('m', null, array('label'=> 'Medium [ M ]'))
+                ->add('l', null, array('label'=> 'Large [ L ]'))
+                ->add('xl', null, array('label'=> 'Extra Large [ XL ]'))
+                ->add('universal', null, array('label'=> 'Universal [ Product without size ]'))
             ->end();
     }
 
@@ -43,7 +54,12 @@ class ProductAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('title')
-            ->add('description')
+            ->add('xs')
+            ->add('s')
+            ->add('m')
+            ->add('l')
+            ->add('xl')
+            ->add('universal')
             ->add('category');
     }
 
@@ -51,7 +67,12 @@ class ProductAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('description')
+            ->add('xs')
+            ->add('s')
+            ->add('m')
+            ->add('l')
+            ->add('xl')
+            ->add('universal')
             ->add('category');
     }
 
@@ -59,7 +80,12 @@ class ProductAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('title')
-            ->add('description')
+            ->add('xs')
+            ->add('s')
+            ->add('m')
+            ->add('l')
+            ->add('xl')
+            ->add('universal')
             ->add('category');
     }
 
