@@ -1,0 +1,122 @@
+.my-body {
+  background-color: #feffff;
+}
+.my-language {
+  background-color: #202c2f;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.my-language ul {
+  list-style: none;
+  margin: auto;
+  width: 100%;
+  padding-left: 90% !important;
+}
+.my-language ul li {
+  display: inline !important;
+  width: 20%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.my-language ul li a {
+  width: 100%;
+  color: #fffcf6 !important;
+  font-family: Calibri !important;
+}
+.my-brand {
+  background-color: #feffff;
+}
+.my-logo {
+  width: 20%;
+  height: 30%;
+}
+.my-menu {
+  width: 100%;
+  margin: 0%;
+  text-align: center;
+}
+.my-menu li {
+  background-color: #feffff !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+.my-hr {
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+}
+.my-container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.my-dropdown-content {
+  padding-left: 0px;
+  padding-right: 0px;
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.my-menu-item:hover .my-dropdown-content {
+  display: none;
+}
+.my-dropdown-contennt-container {
+  background-color: #feffff;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+}
+.my-dropdown-menu {
+  text-align: center;
+}
+.my-dropdown-menu li {
+  background-color: #feffff !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12.5%;
+}
+.my-home-box {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.my-category-box {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.my-subcategory {
+  border: none;
+}
+.my-subcategory-div {
+  border-right-style: solid;
+  border-right-width: 0.5px;
+}
+.my-down-menu {
+  background-color: #202c2f;
+  text-align: center;
+  padding-bottom: 1% ;
+  padding-top: 1%;
+  color: #fffcf6 !important;
+}
+.my-down-menu a {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  color: #fffcf6 !important;
+  font-family: Calibri !important;
+}
+.my-down-menu p {
+  color: #fffcf6 !important;
+  padding-bottom: 0.5% !important;
+}
+.my-footer {
+  text-align: center;
+}

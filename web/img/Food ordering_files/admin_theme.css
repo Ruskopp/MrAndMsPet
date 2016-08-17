@@ -1,0 +1,26 @@
+.adminNavLeft{
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.adminContent{
+    float:left;
+    padding: 10px;
+}
+
+.adminHeadline{
+    margin-top: 0;
+}
+
+.tdPadding{
+    padding: 5px;
+}
+
+.adminContainer{
+    position: relative;
+}
+
+.hLine{
+    border-bottom: 1px solid black;
+}

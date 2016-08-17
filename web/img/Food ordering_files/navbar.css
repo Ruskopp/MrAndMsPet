@@ -1,0 +1,78 @@
+.navHead{
+    float:left;
+    background-color: #008eaa;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    color: white;
+    width: 100%;
+    clear: both;
+}
+.navRight{
+    float: right;
+    width: 225px;
+    max-width: 45%;
+    padding: 5px;
+}
+
+.navLeft{
+    min-width: 115px;
+    float: left;
+    width: 125px;
+    padding: 5px;
+    font-size: xx-large;
+}
+
+a.navLink:link {
+    text-decoration: none;
+    color: yellow;
+}
+a.navLink:visited{
+    text-decoration: none;
+    color: yellow;
+}
+a.navLink:hover {
+    text-decoration: underline;
+    color: #ffda00;
+}
+a.navLink:active{
+    text-decoration: underline;
+    color: #ff1900;
+}
+
+.arrowLeft{
+    background: url("../img/arrow_left.png") 0 0;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    margin-top: 5px;
+}
+.arrowLeft:hover{
+    background: url("../img/arrow_left_hover.png") 0 0;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    margin-top: 5px;
+}
+.arrowRight{
+    background: url("../img/arrow_right.png") 0 0;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    margin-top: 5px;
+}
+.arrowRight:hover{
+    background: url("../img/arrow_right_hover.png") 0 0;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    margin-top: 5px;
+}
+.radioSearch{
+    display: inline-block;
+}
+.logoutUsername{
+    display: inline-block;
+}

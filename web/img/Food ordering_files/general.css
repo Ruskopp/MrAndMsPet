@@ -1,0 +1,108 @@
+.limited-content{
+    max-width: 300px;
+}
+
+.loading{
+    content: url("../img/ajax-loader.gif");
+}
+
+.tableClearBoth{
+    clear: both;
+}
+
+.lastMenu{
+    margin-bottom: 150px;
+}
+
+img.resize{
+    max-width: 540px;
+    margin: 5px 5px 5px 5px;
+}
+
+img.thumb{
+    max-width: 200px;
+    margin: 5px 5px 5px 5px;
+}
+img.thumb:hover{
+    border-style: solid;
+    border-color: transparent;
+    border-width: 2px;
+}
+
+div.image-container{
+    display: inline;
+    overflow: hidden;
+    max-width: 210px;
+    max-height: 160px;
+    float: left;
+}
+
+div.single-image{
+    display:inline;
+    float:left;
+}
+
+a.delete-image{
+    margin-left: -50px;
+}
+
+.loading{
+    content: url("../img/ajax-loader.gif");
+}
+
+div.delete-image-div{
+    display: inline;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/trash_active.png');
+    margin-left: -30px;
+    margin-top: 10px;
+}
+
+div.delete-image-div:hover{
+    background-image: url('../img/trash_hover.png');
+    cursor: pointer;
+}
+
+.comments-container{
+    clear: both;
+}
+
+div.avg-rating{
+    display: inline-block;
+    width: 60px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.show-comments{
+    display: inline-block;
+    width: 48px;
+}
+
+div.show-images{
+    display: inline-block;
+    width: 48px;
+}
+
+div.show-users{
+    display: inline-block;
+    width: 48px;
+}
+
+div.show-price{
+    display: inline-block;
+    float: right;
+}
+
+label.price-label{
+    font-weight: normal;
+    font-size: small;
+}
+
+div.cost{
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+}
