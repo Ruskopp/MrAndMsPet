@@ -62,4 +62,14 @@ class DefaultController extends Controller
             )
         );
     }
+
+    /**
+     * @Route("/products/clothes", name="clothes")
+     */
+    public function clothes(Request $request)
+    {
+        return $this->render('default/menu/menuClothes.html.twig');
+    }
+
+
 }

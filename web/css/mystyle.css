@@ -47,7 +47,7 @@
   padding-right: 0px;
 }
 .my-row {
-  background-color: white;
+  background-color: #feffff;
   margin-right: 0;
   margin-left: 0;
 }
@@ -85,7 +85,7 @@
   height: 250px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: white;
+  background-color: #feffff;
 }
 .my-category-box {
   width: 100%;
@@ -93,12 +93,15 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.my-subcategory {
-  border: none;
-}
 .my-subcategory-div {
+  height: 100%;
   border-right-style: solid;
   border-right-width: 0.5px;
+  background-color: #feffff;
+}
+.my-subcategory-div a {
+  margin-top: 5%;
+  border: none;
 }
 .my-down-menu {
   background-color: #202c2f;
@@ -119,7 +122,7 @@
 .my-down-menu p {
   color: #fffcf6 !important;
   padding-bottom: 0.5% !important;
-  font-size: 1 em;
+  font-size: 1em;
 }
 .my-footer {
   text-align: center;

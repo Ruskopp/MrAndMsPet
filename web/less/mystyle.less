@@ -74,7 +74,7 @@
 }
 
 .my-row {
-  background-color: white;
+  background-color: @background-color;
   margin-right: 0;
   margin-left: 0;
 }
@@ -124,7 +124,7 @@
   height: 250px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: white;
+  background-color: @background-color;
 }
 
 .my-category-box {
@@ -137,13 +137,19 @@
 
 .my-subcategory {
 
-  border: none;
+
 
 }
 
 .my-subcategory-div {
+  height: 100%;
   border-right-style: solid;
   border-right-width: 0.5px;
+  background-color: @background-color;
+  a{
+    margin-top: 5%;
+    border: none;
+  }
 }
 
 .my-down-menu {
@@ -168,7 +174,7 @@
   p {
     color: #fffcf6 !important;
     padding-bottom: 0.5% !important;
-    font-size: 1 em;
+    font-size: 1em;
   }
 
 }
