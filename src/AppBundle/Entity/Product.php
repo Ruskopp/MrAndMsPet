@@ -62,6 +62,13 @@ class Product
     protected $subcategory;
 
     /**
+     * @var Subcategory
+     *
+     * @ORM\ManyToOne(targetEntity="Subcategory")
+     */
+    protected $subcategoryt;
+
+    /**
      * @var UploadedFile
      *
      * @ORM\Column(type="string", length=200, nullable=true)
@@ -447,5 +454,29 @@ class Product
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * Set subcategoryt
+     *
+     * @param \AppBundle\Entity\Subcategory $subcategoryt
+     *
+     * @return Product
+     */
+    public function setSubcategoryt(\AppBundle\Entity\Subcategory $subcategoryt = null)
+    {
+        $this->subcategoryt = $subcategoryt;
+
+        return $this;
+    }
+
+    /**
+     * Get subcategoryt
+     *
+     * @return \AppBundle\Entity\Subcategory
+     */
+    public function getSubcategoryt()
+    {
+        return $this->subcategoryt;
     }
 }

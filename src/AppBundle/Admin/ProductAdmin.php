@@ -9,11 +9,13 @@
 namespace AppBundle\Admin;
 
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Subcategory;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProductAdmin extends AbstractAdmin
 {
@@ -26,6 +28,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('title', 'text', array(
                 'label' => 'Products title'
             ))
+            ->add('code', 'text')
             ->add('category', 'choice', array(
                 'choices' => array(
                     'PAS - Odeca'     => 'PAS - Odeca',
@@ -62,6 +65,16 @@ class ProductAdmin extends AbstractAdmin
                     'parfemi (perfumes)'          => 'parfemi (perfumes)',
                     'samponi (shampoos)'          => 'samponi (shampoos)',
                 )
+            ))
+            ->add('subcategoryt', EntityType::class, array(
+                'class'        => Subcategory::class,
+                'choice_label' => function (Subcategory $subcategory) {
+                    $label =
+                        $subcategory->getTitleSr() . ' - ' .
+                        $subcategory->getCategory()->getTitleSr() . ' - ' .
+                        $subcategory->getCategory()->getAnimal()->getTitleSr();
+                    return $label;
+                },
             ))
             ->add('image', 'file', array(
                 'required' => false
