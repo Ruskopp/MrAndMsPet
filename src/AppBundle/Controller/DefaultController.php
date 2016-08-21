@@ -22,7 +22,6 @@ class DefaultController extends Controller
     public function aboutAction(Request $request)
     {
         return $this->render('default/about.html.twig');
-
     }
 
     /**
@@ -31,7 +30,6 @@ class DefaultController extends Controller
     public function productsAction(Request $request)
     {
         return $this->render('default/products.html.twig');
-
     }
 
     /**
@@ -40,6 +38,5 @@ class DefaultController extends Controller
     public function contactAction(Request $request)
     {
         return $this->render('default/contact.html.twig');
-
     }
 }
