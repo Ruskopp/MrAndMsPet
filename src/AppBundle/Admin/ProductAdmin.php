@@ -94,6 +94,7 @@ class ProductAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        
         $datagridMapper
             ->add('title')
             ->add('xs')
