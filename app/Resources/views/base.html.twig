@@ -34,21 +34,22 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body class="my-body">
-<div class="container my-language">
-    <ul>
-        <li><a href="#">ENG</a></li>
-        <li><a href="#">SRP</a></li>
-    </ul>
-</div>
+<div class="container">
+    <div class=" my-language">
+        <ul>
+            <li><a href="#">ENG</a></li>
+            <li><a href="#">SRP</a></li>
+        </ul>
+    </div>
 
-<div class="my-brand brand"><img src="{{ asset('img/logo.jpg') }}" class="my-logo" alt=""></div>
+    <div class="my-brand brand"><img src="{{ asset('img/logo.jpg') }}" class="my-logo" alt="">
+    </div>
 
-{% block navigation %}
+    {% block navigation %}
     <!-- Navigation -->
+    <div id="navigation">
+        <nav class="my-hr navbar navbar-default" role="navigation" style="margin-bottom: 0% ">
 
-    <nav class="my-hr navbar navbar-default" role="navigation">
-
-        <div class="container">
 
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -62,15 +63,18 @@
                 <a class="navbar-brand" href="{{ path('home') }}">Mr. & Mrs. Pet</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main-menu">
+            <div class="collapse navbar-collapse" id="main-menu"  style = "background-color:white;">
                 <hr/>
                 <ul class="my-menu nav navbar-nav ">
 
                     <li>
                         <a href="{{ path('home') }}">POČETNA</a>
                     </li>
-                    <li class="my-dropdown-menu-item">
-                        <a href="{{ path('products') }}">PROIZVODI <span class="glyphicon glyphicon-menu-down"></span></a>
+                    <li class="my-dropdown-menu-item" id="action">
+                        <a href="{{ path('products') }}">PROIZVODI <span
+                                    class="glyphicon glyphicon-menu-down"></span></a>
+
+
                     </li>
                     <li>
                         <a href="{{ path('about') }}">O NAMA</a>
@@ -81,97 +85,114 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            <!-- /.container -->
 
+        </nav>
+
+
+        <div id="reaction" style="display:none">
+            <div class="my-dropdown-content my-dropdown-contennt-container">
+                <nav class="navbar navbar-default" role="navigation">
+
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header" style = "display:none">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#dropdown-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" style="padding-left: 0; padding-right: 0; "
+                         id="dropdown-menu">
+
+                        <ul class="my-dropdown-menu nav navbar-nav ">
+
+                            <li>
+                                <a href="#">ODECA</a>
+                            </li>
+                            <li>
+                                <a href="#">KREVETI</a>
+
+                            </li>
+                            <li>
+                                <a href="#">SPA</a>
+                            </li>
+                            <li>
+                                <a href="#">IGRAČKE</a>
+                            </li>
+                            <li>
+                                <a href="#">AKSESOARI</a>
+                            </li>
+                            <li>
+                                <a href="#">POSUDE</a>
+
+                            </li>
+                            <li>
+                                <a href="#">HRANA</a>
+                            </li>
+                            <li>
+                                <a href="#">MAČKE</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+
+                    <!-- /.container -->
+
+                </nav>
+
+            </div>
         </div>
-        <!-- /.container -->
 
-    </nav>
-
-    <div class="container-fluid my-container-fluid">
-        <div class="my-dropdown-content my-dropdown-contennt-container">
-            <nav class="navbar navbar-default" role="navigation">
-
-
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dropdown-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" style="padding-left: 0; padding-right: 0;" id="dropdown-menu">
-
-                    <ul class="my-dropdown-menu nav navbar-nav ">
-
-                        <li>
-                            <a href="#">ODECA</a>
-                        </li>
-                        <li>
-                            <a href="#">KREVETI</a>
-
-                        </li>
-                        <li>
-                            <a href="#">SPA</a>
-                        </li>
-                        <li>
-                            <a href="#">IGRAČKE</a>
-                        </li>
-                        <li>
-                            <a href="#">AKSESOARI</a>
-                        </li>
-                        <li>
-                            <a href="#">POSUDE</a>
-
-                        </li>
-                        <li>
-                            <a href="#">HRANA</a>
-                        </li>
-                        <li>
-                            <a href="#">MAČKE</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-
-                <!-- /.container -->
-
-            </nav>
-
-        </div>
-    </div>
+</div>
+</div>
 {% endblock %}
+<div class="container">
+    <div class="box">
+
 
 
 {% block body %}{% endblock %}
 
-
-<footer>
-    <div class="container">
-        {% block footer %}
-            <div class="row">
-                <div class="my-down-menu">
-                    <a href="#">POCETNA</a>
-                    <a href="#">PROIZVODI</a>
-                    <a href="#">O NAMA</a>
-                    <a href="#">KONTAKT</a>
-                    <br/>
-                    <p> Copyright &copy; sPigeon 2016</p>
-                </div>
-            </div>
-        {% endblock %}
+        </div>
     </div>
-</footer>
 
+
+
+{% block footer %}
+<div class="container">
+
+        <div class="my-down-menu">
+            <a href="#">POCETNA</a>
+            <a href="#">PROIZVODI</a>
+            <a href="#">O NAMA</a>
+            <a href="#">KONTAKT</a>
+            <br/>
+            <p> Copyright &copy; sPigeon 2016</p>
+        </div>
+
+    {% endblock %}
+
+</div>
 {% block javascripts %}
+
+
+
+
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <script src="{{ asset('js/myscript.js') }}"></script>
+
+
 
 {% endblock %}
 </body>

@@ -1,3 +1,6 @@
+.my-body {
+
+}
 .my-language {
   background-color: #202c2f;
   padding-top: 1%;
@@ -46,11 +49,6 @@
   padding-left: 0px;
   padding-right: 0px;
 }
-.my-row {
-  background-color: white;
-  margin-right: 0;
-  margin-left: 0;
-}
 .my-dropdown-content {
   padding-left: 0px;
   padding-right: 0px;
@@ -85,7 +83,6 @@
   height: 250px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: white;
 }
 .my-category-box {
   width: 100%;
@@ -103,7 +100,7 @@
 .my-down-menu {
   background-color: #202c2f;
   text-align: center;
-  padding-bottom: 1%;
+  padding-bottom: 1% ;
   padding-top: 1%;
   color: #fffcf6 !important;
 }
@@ -119,7 +116,6 @@
 .my-down-menu p {
   color: #fffcf6 !important;
   padding-bottom: 0.5% !important;
-  font-size: 1 em;
 }
 .my-footer {
   text-align: center;
