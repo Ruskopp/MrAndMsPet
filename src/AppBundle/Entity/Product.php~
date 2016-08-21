@@ -35,6 +35,14 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $code;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=100,nullable=true)
      */
     protected $description;
@@ -343,5 +351,77 @@ class Product
     public function getXl()
     {
         return $this->xl;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set subcategory
+     *
+     * @param string $subcategory
+     *
+     * @return Product
+     */
+    public function setSubcategory($subcategory)
+    {
+        $this->subcategory = $subcategory;
+
+        return $this;
+    }
+
+    /**
+     * Get subcategory
+     *
+     * @return string
+     */
+    public function getSubcategory()
+    {
+        return $this->subcategory;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

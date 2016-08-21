@@ -35,6 +35,14 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $code;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=100,nullable=true)
      */
     protected $description;
@@ -415,5 +423,29 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Product
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }
