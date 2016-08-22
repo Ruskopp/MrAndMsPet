@@ -30,7 +30,14 @@ class Product
      *
      * @ORM\Column(type="string", length=100)
      */
-    protected $title;
+    protected $titleEng;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $titleSrp;
 
     /**
      * @var string
@@ -47,24 +54,18 @@ class Product
      */
     protected $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=100,nullable=true)
-     */
-    protected $category;
 
     /**
-     * @var string
+     * @var Subcategory
      *
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\ManyToOne(targetEntity="Subcategory")
      */
     protected $subcategory;
 
     /**
      * @var UploadedFile
      *
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $image;
 
@@ -137,53 +138,6 @@ class Product
         return $this->id;
     }
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Product
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Product
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 
     /**
      * Set image
@@ -378,30 +332,6 @@ class Product
     }
 
     /**
-     * Set subcategory
-     *
-     * @param string $subcategory
-     *
-     * @return Product
-     */
-    public function setSubcategory($subcategory)
-    {
-        $this->subcategory = $subcategory;
-
-        return $this;
-    }
-
-    /**
-     * Get subcategory
-     *
-     * @return string
-     */
-    public function getSubcategory()
-    {
-        return $this->subcategory;
-    }
-
-    /**
      * Set price
      *
      * @param string $price
@@ -423,5 +353,53 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Product
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set subcategory
+     *
+     * @param Subcategory $subcategory
+     *
+     * @return Product
+     */
+    public function setSubcategory(\AppBundle\Entity\Subcategory $subcategory = null)
+    {
+        $this->subcategory = $subcategory;
+
+        return $this;
+    }
+
+    /**
+     * Get subcategory
+     *
+     * @return Subcategory
+     */
+    public function getSubcategory()
+    {
+        return $this->subcategory;
     }
 }

@@ -9,6 +9,15 @@ services:
             arguments: [~, AppBundle\Entity\Product, ~]
             tags:
                 - { name: sonata.admin, manager_type: orm, label: Product creation system }
+    app.product_uploader:
+        class: AppBundle\FileUploader
+        arguments: ['%products_directory%']
+    app.doctrine_product_listener:
+        class: AppBundle\EventListener\ProductUploadListener
+        arguments: ['@app.product_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

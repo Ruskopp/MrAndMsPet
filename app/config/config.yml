@@ -7,6 +7,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    products_web_directory: '/web/uploads/products'
+    products_directory: '%kernel.root_dir%/..%products_web_directory%'
 
 framework:
     #esi:             ~
