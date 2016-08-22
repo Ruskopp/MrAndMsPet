@@ -127,4 +127,12 @@ class Subcategory
     {
         return $this->category;
     }
+
+    public function __toString()
+    {
+        return
+            $this->titleEng . ' - ' .
+            $this->category->getTitleEng() . ' - ' .
+            $this->category->getAnimal()->getTitleEng();
+    }
 }

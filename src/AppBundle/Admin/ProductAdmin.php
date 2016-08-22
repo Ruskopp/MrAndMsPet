@@ -43,48 +43,15 @@ class ProductAdmin extends AbstractAdmin
             ->with('Public data', array(
                 'class' => 'col-sm-7'
             ))
-            ->add('title', 'text', array(
-                'label' => 'Products title'
+            ->add('titleEng', 'text', array(
+                'label' => 'Products title (English)'
+            ))
+            ->add('titleSrp', 'text', array(
+                'label' => 'Products title (Serbian)'
             ))
             ->add('code', 'text')
-            ->add('category', 'choice', array(
-                'choices' => array(
-                    'PAS - Odeca'     => 'PAS - Odeca',
-                    'PAS - Aksesoari' => 'PAS - Aksesoari',
-                    'PAS - Krevet'    => 'PAS - Krevet',
-                    'PAS - Spa'       => 'PAS - Spa',
-                    'PAS - Igracke'   => 'PAS - Igracke',
-                    'PAS - Posude'    => 'PAS - Posude',
-                )
-            ))
-            ->add('subcategory', 'choice', array(
-                'choices' => array(
-                    'nema (none)'                 => 'nema (none)',
-                    'majice (t-shirts)'           => 'majice (t-shirts)',
-                    'duksevi (hoodies)'           => 'duksevi (hoodies)',
-                    'dzemperi (sweaters)'         => 'dzemperi (sweaters)',
-                    'kabanice (raincoats)'        => 'kabanice (raincoats)',
-                    'jakne (jackets)'             => 'jakne (jackets)',
-                    'prsluci (vests)'             => 'prsluci (vests)',
-                    'kombinezoni (jumpsuits)'     => 'kombinezoni (jumpsuits)',
-                    'haljine (dresses)'           => 'haljine (dresses)',
-                    'suknje (skirts)'             => 'suknje (skirts)',
-                    'farmerke (jeans)'            => 'farmerke (jeans)',
-                    'kosulje (shirts)'            => 'kosulje (shirts)',
-                    'kaputi (coats)'              => 'kaputi (coats)',
-                    'gace (panties)'              => 'gace (panties)',
-                    'ogrlice (collars)'           => 'ogrlice (collars)',
-                    'povodci (leashes)'           => 'povodci (leashes)',
-                    'amovi (harnesses)'           => 'amovi (harnesses)',
-                    'masne (bows)'                => 'masne (bows)',
-                    'kravate (ties)'              => 'kravate (ties)',
-                    'adresari (address)'          => 'adresari (address)',
-                    'vlazne maramice (wet wipes)' => 'vlazne maramice (wet wipes)',
-                    'parfemi (perfumes)'          => 'parfemi (perfumes)',
-                    'samponi (shampoos)'          => 'samponi (shampoos)',
-                )
-            ))
-            ->add('subcategoryt', EntityType::class, array(
+            ->add('price')
+            ->add('subcategory', EntityType::class, array(
                 'class'        => Subcategory::class,
                 'choice_label' => function (Subcategory $subcategory) {
                     $label =
@@ -99,6 +66,9 @@ class ProductAdmin extends AbstractAdmin
             ->with('Private data', array(
                 'class' => 'col-sm-5'
             ))
+            ->add('description', 'text', array(
+                'label' => 'Description.'
+            ))
             ->add('xs', null, array('label' => 'Extra small [ XS ]'))
             ->add('s', null, array('label' => 'Small [ S ]'))
             ->add('m', null, array('label' => 'Medium [ M ]'))
@@ -110,49 +80,49 @@ class ProductAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-
-
         $datagridMapper
-            ->add('title')
+            ->add('titleEng')
             ->add('xs')
             ->add('s')
             ->add('m')
             ->add('l')
             ->add('xl')
             ->add('universal')
-            ->add('category');
+            ->add('subcategory');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        /** @var Product $product */
+        $product = $this->getSubject();
         $listMapper
-            ->addIdentifier('title')
+            ->addIdentifier('titleEng')
             ->add('xs')
             ->add('s')
             ->add('m')
             ->add('l')
             ->add('xl')
             ->add('universal')
-            ->add('category');
+            ->add('subcategory');
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title')
+            ->add('titleEng')
             ->add('xs')
             ->add('s')
             ->add('m')
             ->add('l')
             ->add('xl')
             ->add('universal')
-            ->add('category');
+            ->add('subcategory');
     }
 
     public function toString($object)
     {
         return $object instanceof Product
-            ? $object->getTitle()
+            ? $object->getTitleSrp()
             : 'Product'; // shown in the breadcrumb on the create view
     }
 }
