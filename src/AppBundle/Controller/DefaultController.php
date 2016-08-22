@@ -13,7 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('default/home.html.twig');
+        return $this->render('eng/home.html.twig');
     }
 
     /**
@@ -21,7 +21,7 @@ class DefaultController extends Controller
      */
     public function aboutAction(Request $request)
     {
-        return $this->render('default/about.html.twig');
+        return $this->render('eng/about.html.twig');
     }
 
     /**
@@ -29,7 +29,7 @@ class DefaultController extends Controller
      */
     public function productsAction(Request $request)
     {
-        return $this->render('default/products.html.twig');
+        return $this->render('eng/products.html.twig');
     }
 
     /**
@@ -37,7 +37,7 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
-        return $this->render('default/contact.html.twig');
+        return $this->render('eng/contact.html.twig');
     }
 
     /**
@@ -68,8 +68,58 @@ class DefaultController extends Controller
      */
     public function clothes(Request $request)
     {
-        return $this->render('default/menu/menuClothes.html.twig');
+        return $this->render('eng/specificCategory/clothes.html.twig');
     }
 
+
+    /**
+     * @Route("/products/accessories", name="accessories")
+     */
+    public function accessories(Request $request)
+    {
+        return $this->render('eng/specificCategory/accessories.html.twig');
+    }
+    /**
+     * @Route("/products/beds", name="beds")
+     */
+    public function beds(Request $request)
+    {
+        return $this->render('eng/specificCategory/beds.html.twig');
+    }
+    /**
+     * @Route("/products/bolls", name="bolls")
+     */
+    public function bolls(Request $request)
+    {
+        return $this->render('eng/specificCategory/bolls.html.twig');
+    }
+    /**
+     * @Route("/products/cats", name="cats")
+     */
+    public function cats(Request $request)
+    {
+        return $this->render('eng/specificCategory/cats.html.twig');
+    }
+    /**
+     * @Route("/products/food", name="food")
+     */
+    public function food(Request $request)
+    {
+        return $this->render('eng/specificCategory/food.html.twig');
+    }
+    /**
+     * @Route("/products/spa", name="spa")
+     */
+    public function spa(Request $request)
+    {
+        return $this->render('eng/specificCategory/spa.html.twig');
+    }
+    /**
+     * @Route("/products/toys", name="toys")
+     */
+    public function toys(Request $request)
+    {
+        return $this->render('eng/specificCategory/toys.html.twig');
+    }
 
 }

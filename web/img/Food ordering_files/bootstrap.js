@@ -836,7 +836,7 @@
     }
 
     var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('.dropdown-menu' + desc)
+    var $items = $parent.find('.dropdown-specificCategory' + desc)
 
     if (!$items.length) return
 
@@ -886,7 +886,7 @@
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-specificCategory', Dropdown.prototype.keydown)
 
 }(jQuery);
 
@@ -1968,7 +1968,7 @@
       .parents('li')
       .addClass('active')
 
-    if (active.parent('.dropdown-menu').length) {
+    if (active.parent('.dropdown-specificCategory').length) {
       active = active
         .closest('li.dropdown')
         .addClass('active')
@@ -2052,7 +2052,7 @@
 
   Tab.prototype.show = function () {
     var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
+    var $ul      = $this.closest('ul:not(.dropdown-specificCategory)')
     var selector = $this.data('target')
 
     if (!selector) {
@@ -2099,7 +2099,7 @@
     function next() {
       $active
         .removeClass('active')
-        .find('> .dropdown-menu > .active')
+        .find('> .dropdown-specificCategory > .active')
           .removeClass('active')
         .end()
         .find('[data-toggle="tab"]')
@@ -2117,7 +2117,7 @@
         element.removeClass('fade')
       }
 
-      if (element.parent('.dropdown-menu').length) {
+      if (element.parent('.dropdown-specificCategory').length) {
         element
           .closest('li.dropdown')
             .addClass('active')

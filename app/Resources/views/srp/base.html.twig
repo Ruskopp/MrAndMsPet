@@ -34,6 +34,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body class="my-body">
+
+
 <div class="container">
     <div class=" my-language">
         <ul>
@@ -48,7 +50,7 @@
     {% block navigation %}
     <!-- Navigation -->
     <div id="navigation">
-        <nav class="my-hr navbar navbar-default" role="navigation" style="margin-bottom: 0% ">
+        <nav class="my-hr navbar navbar-default" role="navigation" style="margin-bottom: 0 ">
 
 
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <!-- navbar-brand is hidden on larger screens, but visible when the specificCategory is collapsed -->
                 <a class="navbar-brand" href="{{ path('home') }}">Mr. & Mrs. Pet</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -92,20 +94,10 @@
 
         <div id="reaction" style="display:none">
             <div class="my-dropdown-content my-dropdown-contennt-container">
-                <nav class="navbar navbar-default" role="navigation">
+                <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0 ">
 
 
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header" style = "display:none">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#dropdown-menu">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
 
-                    </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" style="padding-left: 0; padding-right: 0; "
                          id="dropdown-menu">
@@ -113,30 +105,30 @@
                         <ul class="my-dropdown-menu nav navbar-nav ">
 
                             <li>
-                                <a href="#">ODECA</a>
+                                <a href="{{ path('clothes') }}">ODECA</a>
                             </li>
                             <li>
-                                <a href="#">KREVETI</a>
+                                <a href="{{ path('beds') }}">KREVETI</a>
 
                             </li>
                             <li>
-                                <a href="#">SPA</a>
+                                <a href="{{ path('spa') }}">SPA</a>
                             </li>
                             <li>
-                                <a href="#">IGRAČKE</a>
+                                <a href="{{ path('toys') }}">IGRAČKE</a>
                             </li>
                             <li>
-                                <a href="#">AKSESOARI</a>
+                                <a href="{{ path('accessories') }}">AKSESOARI</a>
                             </li>
                             <li>
-                                <a href="#">POSUDE</a>
+                                <a href="{{ path('bolls') }}">POSUDE</a>
 
                             </li>
                             <li>
-                                <a href="#">HRANA</a>
+                                <a href="{{ path('food') }}">HRANA</a>
                             </li>
                             <li>
-                                <a href="#">MAČKE</a>
+                                <a href="{{ path('cats') }}">MAČKE</a>
                             </li>
                         </ul>
                     </div>
@@ -168,17 +160,17 @@
 <div class="container">
 
         <div class="my-down-menu">
-            <a href="#">POCETNA</a>
-            <a href="#">PROIZVODI</a>
-            <a href="#">O NAMA</a>
-            <a href="#">KONTAKT</a>
+            <a href="{{ path('home') }}">POCETNA</a>
+            <a href="{{ path('products') }}">PROIZVODI</a>
+            <a href="{{ path('about') }}">O NAMA</a>
+            <a href="{{ path('contact') }}">KONTAKT</a>
             <br/>
             <p> Copyright &copy; pigeon </p>
         </div>
-
+</div>
     {% endblock %}
 
-</div>
+
 {% block javascripts %}
 
 
