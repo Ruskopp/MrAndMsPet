@@ -71,7 +71,7 @@ class Product
     /**
      * @var UploadedFile
      *
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $image;
 
@@ -479,4 +479,6 @@ class Product
     {
         return $this->subcategoryt;
     }
+
+
 }

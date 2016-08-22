@@ -16,6 +16,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductAdmin extends AbstractAdmin
 {
@@ -76,9 +77,7 @@ class ProductAdmin extends AbstractAdmin
                     return $label;
                 },
             ))
-            ->add('image', 'file', array(
-                'required' => false
-            ))
+            ->add('image', FileType::class, array('label' => 'Image'))
             ->end()
             ->with('Private data', array(
                 'class' => 'col-sm-5'
