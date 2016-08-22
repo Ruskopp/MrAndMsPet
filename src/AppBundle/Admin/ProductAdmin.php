@@ -22,6 +22,23 @@ class ProductAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
+        /** @var Product $product */
+        $product = $this->getSubject();
+
+
+        $fileFieldOptions = array('required' => false);
+        $fileFieldOptions['data_class'] = null;
+        if ($product && ($image = $product->getImage())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request_stack')->getCurrentRequest()->getBaseUrl() . '/../..' .
+                $container->getParameter('products_web_directory') . '/' . $image;
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions['help'] =
+                '<img src="' . $fullPath . '" class="admin-preview" style="max-height: 200px; max-width: 200px;"/>';
+        }
+
+
         $formMapper
             ->with('Public data', array(
                 'class' => 'col-sm-7'
@@ -77,7 +94,7 @@ class ProductAdmin extends AbstractAdmin
                     return $label;
                 },
             ))
-            ->add('image', FileType::class, array('label' => 'Image'))
+            ->add('image', FileType::class, $fileFieldOptions)
             ->end()
             ->with('Private data', array(
                 'class' => 'col-sm-5'
@@ -93,7 +110,8 @@ class ProductAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        
+
+
         $datagridMapper
             ->add('title')
             ->add('xs')
