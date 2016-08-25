@@ -42,7 +42,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $code;
 
@@ -126,7 +126,7 @@ class Product
      *
      * @ORM\Column(type="smallint")
      */
-    protected $universal = 0;
+    protected $amount = 0;
 
     /**
      * Get id
@@ -257,30 +257,6 @@ class Product
     public function getL()
     {
         return $this->l;
-    }
-
-    /**
-     * Set universal
-     *
-     * @param integer $universal
-     *
-     * @return Product
-     */
-    public function setUniversal($universal)
-    {
-        $this->universal = $universal;
-
-        return $this;
-    }
-
-    /**
-     * Get universal
-     *
-     * @return integer
-     */
-    public function getUniversal()
-    {
-        return $this->universal;
     }
 
     /**
@@ -449,5 +425,29 @@ class Product
     public function getTitleSrp()
     {
         return $this->titleSrp;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     *
+     * @return Product
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }

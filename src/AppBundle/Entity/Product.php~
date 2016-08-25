@@ -42,7 +42,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $code;
 
@@ -72,7 +72,7 @@ class Product
     /**
      * @var int
      *
-     * @ORM\Column(type="decimal", length=100,nullable=true)
+     * @ORM\Column(type="decimal", length=100,nullable=false)
      */
     protected $price;
 
@@ -126,7 +126,7 @@ class Product
      *
      * @ORM\Column(type="smallint")
      */
-    protected $universal = 0;
+    protected $amount = 0;
 
     /**
      * Get id
@@ -260,30 +260,6 @@ class Product
     }
 
     /**
-     * Set universal
-     *
-     * @param integer $universal
-     *
-     * @return Product
-     */
-    public function setUniversal($universal)
-    {
-        $this->universal = $universal;
-
-        return $this;
-    }
-
-    /**
-     * Get universal
-     *
-     * @return integer
-     */
-    public function getUniversal()
-    {
-        return $this->universal;
-    }
-
-    /**
      * Set xl
      *
      * @param integer $xl
@@ -386,7 +362,7 @@ class Product
      *
      * @return Product
      */
-    public function setSubcategory(\AppBundle\Entity\Subcategory $subcategory = null)
+    public function setSubcategory(Subcategory $subcategory = null)
     {
         $this->subcategory = $subcategory;
 
@@ -401,5 +377,53 @@ class Product
     public function getSubcategory()
     {
         return $this->subcategory;
+    }
+
+    /**
+     * Set titleEng
+     *
+     * @param string $titleEng
+     *
+     * @return Product
+     */
+    public function setTitleEng($titleEng)
+    {
+        $this->titleEng = $titleEng;
+
+        return $this;
+    }
+
+    /**
+     * Get titleEng
+     *
+     * @return string
+     */
+    public function getTitleEng()
+    {
+        return $this->titleEng;
+    }
+
+    /**
+     * Set titleSrp
+     *
+     * @param string $titleSrp
+     *
+     * @return Product
+     */
+    public function setTitleSrp($titleSrp)
+    {
+        $this->titleSrp = $titleSrp;
+
+        return $this;
+    }
+
+    /**
+     * Get titleSrp
+     *
+     * @return string
+     */
+    public function getTitleSrp()
+    {
+        return $this->titleSrp;
     }
 }
