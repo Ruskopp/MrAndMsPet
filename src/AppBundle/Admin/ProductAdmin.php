@@ -49,7 +49,6 @@ class ProductAdmin extends AbstractAdmin
             ->add('titleSrp', 'text', array(
                 'label' => 'Products title (Serbian)'
             ))
-            ->add('code', 'text')
             ->add('price')
             ->add('subcategory', EntityType::class, array(
                 'class'        => Subcategory::class,
@@ -66,43 +65,48 @@ class ProductAdmin extends AbstractAdmin
             ->with('Private data', array(
                 'class' => 'col-sm-5'
             ))
+            ->add('code', 'text', array(
+                'required' => false,
+            ))
             ->add('description', 'text', array(
-                'label' => 'Description.'
+                'label'    => 'Description.',
+                'required' => false,
             ))
             ->add('xs', null, array('label' => 'Extra small [ XS ]'))
             ->add('s', null, array('label' => 'Small [ S ]'))
             ->add('m', null, array('label' => 'Medium [ M ]'))
             ->add('l', null, array('label' => 'Large [ L ]'))
             ->add('xl', null, array('label' => 'Extra Large [ XL ]'))
-            ->add('universal', null, array('label' => 'Universal [ Product without size ]'))
+            ->add('amount', null, array('label' => 'Amount [ Product without size ]'))
             ->end();
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('code')
             ->add('titleEng')
             ->add('xs')
             ->add('s')
             ->add('m')
             ->add('l')
             ->add('xl')
-            ->add('universal')
+            ->add('amount')
             ->add('subcategory');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        /** @var Product $product */
-        $product = $this->getSubject();
         $listMapper
             ->addIdentifier('titleEng')
+            ->add('price')
+            ->add('code')
             ->add('xs')
             ->add('s')
             ->add('m')
             ->add('l')
             ->add('xl')
-            ->add('universal')
+            ->add('amount')
             ->add('subcategory');
     }
 
@@ -115,7 +119,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('m')
             ->add('l')
             ->add('xl')
-            ->add('universal')
+            ->add('amount')
             ->add('subcategory');
     }
 
