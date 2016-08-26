@@ -65,24 +65,24 @@
                 <a class="navbar-brand" href="{{ path('home') }}">Mr. & Mrs. Pet</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main-menu"  style = "background-color:white;">
+            <div class="collapse navbar-collapse" id="main-menu" style="background-color:white;">
                 <hr/>
                 <ul class="my-menu nav navbar-nav ">
 
                     <li>
-                        <a href="{{ path('home') }}">POČETNA</a>
+                        <a href="{{ path('home', {'lang' : 'srp'}) }}">POČETNA</a>
                     </li>
                     <li class="my-dropdown-menu-item" id="action">
-                        <a href="{{ path('products') }}">PROIZVODI <span
+                        <a href="{{ path('category', {'lang' : 'srp'}) }}">PROIZVODI <span
                                     class="glyphicon glyphicon-menu-down"></span></a>
 
 
                     </li>
                     <li>
-                        <a href="{{ path('about') }}">O NAMA</a>
+                        <a href="{{ path('about', {'lang' : 'srp'}) }}">O NAMA</a>
                     </li>
                     <li>
-                        <a href="{{ path('contact') }}">KONTAKT</a>
+                        <a href="{{ path('contact', {'lang' : 'srp'}) }}">KONTAKT</a>
                     </li>
                 </ul>
             </div>
@@ -96,61 +96,92 @@
                 <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0 ">
 
 
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" style="padding-left: 0; padding-right: 0; "
                          id="dropdown-menu">
 
                         <ul class="my-dropdown-menu nav navbar-nav ">
-
                             <li>
-                                <a href="{{ path('clothes') }}">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'apparel'
+                                }) }}">
                                     <img src="{{ asset('img/clothes.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     ODEĆA</a>
                             </li>
                             <li>
-                                <a href="{{ path('beds') }}">
-                                    <img src="{{ asset('img/bedding.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'bedding'
+                                }) }}"><img src="{{ asset('img/bedding.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     KREVETI
                                 </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('spa') }}"><img src="{{ asset('img/spa.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'spa'
+                                }) }}"><img src="{{ asset('img/spa.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     SPA
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('toys') }}"><img src="{{ asset('img/toys.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'toys'
+                                }) }}"><img src="{{ asset('img/toys.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     IGRAČKE
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('accessories') }}">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'accessories'
+                                }) }}">
                                     <img src="{{ asset('img/accessories.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     AKSESOARI
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('bolls') }}"><img src="{{ asset('img/feeding.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'feeding'
+                                }) }}">
+                                    <img src="{{ asset('img/feeding.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     POSUDE
                                 </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('food') }}"><img src="{{ asset('img/food.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'dog',
+                                    'category' : 'food'
+                                }) }}">
+                                    <img src="{{ asset('img/food.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     HRANA
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('cats') }}"><img src="{{ asset('img/cats.jpg') }}" class="my-logo" alt="">
+                                <a href="{{ path('all_products', {
+                                    'lang':'srp',
+                                    'animal' : 'cat',
+                                    'category' : 'none'
+                                }) }}"><img src="{{ asset('img/cats.jpg') }}" class="my-logo" alt="">
                                     <br/>
                                     MAČKE
                                 </a>
@@ -166,34 +197,32 @@
             </div>
         </div>
 
-</div>
+    </div>
 </div>
 {% endblock %}
 <div class="container">
     <div class="box">
 
 
+        {% block body %}{% endblock %}
 
-{% block body %}{% endblock %}
-
-        </div>
     </div>
-
+</div>
 
 
 {% block footer %}
-<div class="container">
+    <div class="container">
 
         <div class="my-down-menu">
-            <a href="{{ path('home') }}">POCETNA</a>
-            <a href="{{ path('products') }}">PROIZVODI</a>
-            <a href="{{ path('about') }}">O NAMA</a>
-            <a href="{{ path('contact') }}">KONTAKT</a>
+            <a href="{{ path('home', {'lang' : 'srp'}) }}">HOME</a>
+            <a href="{{ path('category', {'lang' : 'srp'}) }}">PRODUCTS</a>
+            <a href="{{ path('about', {'lang' : 'srp'}) }}">ABOUT US</a>
+            <a href="{{ path('contact', {'lang' : 'srp'}) }}">CONTACT US</a>
             <br/>
             <p> Copyright &copy; Marija Janković i Marko Kastratović </p>
         </div>
-</div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
 
 {% block javascripts %}

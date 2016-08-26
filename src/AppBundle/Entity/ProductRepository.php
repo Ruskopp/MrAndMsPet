@@ -27,4 +27,20 @@ class ProductRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findProductsByTitleEngAll($animal, $category)
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.subcategory', 's')
+            ->join('s.category', 'c')
+            ->join('c.animal', 'a')
+            ->andWhere('c.titleEng = :category')
+            ->andWhere('a.titleEng = :animal')
+            ->setParameters(array(
+                'category'    => $category,
+                'animal'      => $animal,
+            ))
+            ->getQuery()
+            ->getResult();
+    }
 }

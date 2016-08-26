@@ -49,11 +49,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/products", name="products")
+     * @Route("/category", name="category")
+     *
+     * @param $lang
+     * @return Response
      */
-    public function productsAction(Request $request)
+    public function categoryAction($lang)
     {
-        return $this->render('category.html.twig');
+        return $this->render($lang . '/category.html.twig', array(
+            'urlEng' => $this->generateUrl('category', array('lang' => 'eng')),
+            'urlSrp' => $this->generateUrl('category', array('lang' => 'srp')),
+        ));
     }
 
     /**
@@ -70,98 +76,91 @@ class DefaultController extends Controller
         ));
     }
 
-
     /**
-     * @Route("/products/clothes", name="clothes")
+     * @Route(
+     *     "/products/{animal}/{category}",
+     *     name="all_products",
+     *     requirements={"animal":"cat|dog"}
+     * )
+     *
+     * @param $lang
+     * @param $animal
+     * @param $category
+     * @return Response
      */
-    public function clothes(Request $request)
+    public function productsAllAction($lang, $animal, $category)
     {
-        return $this->render('apparel.html.twig');
-    }
+        $em = $this->getDoctrine()->getManager();
+        $cat = $em->getRepository(Category::class)->findByTitleEng($category);
 
+        if (empty($cat)) {
+            var_dump('NO ROUTEEEEEEEE');
+            //return new RedirectResponse($this->generateUrl('home'));
+        }
 
-    /**
-     * @Route("/products/accessories", name="accessories")
-     */
-    public function accessories(Request $request)
-    {
-        return $this->render('eng/specificCategory/accessories.html.twig');
-    }
+        $products = $em->getRepository(Product::class)->findProductsByTitleEngAll($animal, $category);
 
-    /**
-     * @Route("/products/beds", name="beds")
-     */
-    public function beds(Request $request)
-    {
-        return $this->render('bedding.html.twig');
-    }
-
-    /**
-     * @Route("/products/bolls", name="bolls")
-     */
-    public function bolls(Request $request)
-    {
-        return $this->render('feeding.html.twig');
-    }
-
-    /**
-     * @Route("/products/cats", name="cats")
-     */
-    public function cats(Request $request)
-    {
-        return $this->render('eng/specificCategory/cats.html.twig');
-    }
-
-    /**
-     * @Route("/products/food", name="food")
-     */
-    public function food(Request $request)
-    {
-        return $this->render('eng/specificCategory/food.html.twig');
-    }
-
-    /**
-     * @Route("/products/spa", name="spa")
-     */
-    public function spa(Request $request)
-    {
-        return $this->render('eng/specificCategory/spa.html.twig');
-    }
-
-    /**
-     * @Route("/products/toys", name="toys")
-     */
-    public function toys(Request $request)
-    {
-        return $this->render('eng/specificCategory/toys.html.twig');
+        return $this->render(
+            $this->createView($lang, $category),
+            array(
+                'urlEng'   => $this->generateUrl('all_products', array(
+                    'lang'     => 'eng',
+                    'animal'   => $animal,
+                    'category' => $category
+                )),
+                'urlSrp'   => $this->generateUrl('all_products', array(
+                    'lang'     => 'srp',
+                    'animal'   => $animal,
+                    'category' => $category
+                )),
+                'products' => $products,
+            )
+        );
     }
 
     /**
      * @Route(
-     *     "productst/{animal}/{category}/{subcategory}",
-     *     name="productst",
+     *     "/products/{animal}/{category}/{subcategory}",
+     *     name="products",
      *     requirements={"animal":"cat|dog"}
      * )
+     *
+     * @param $lang
+     * @param $animal
+     * @param $category
+     * @param $subcategory
+     * @return Response
      */
-    public function products($language, $animal, $category, $subcategory)
+    public function productsAction($lang, $animal, $category, $subcategory)
     {
         $em = $this->getDoctrine()->getManager();
         $cat = $em->getRepository(Category::class)->findByTitleEng($category);
         $sub = $em->getRepository(Subcategory::class)->findByTitleEng($subcategory);
 
         if (empty($cat) || empty($sub)) {
-            return new RedirectResponse($this->generateUrl('home'));
+            var_dump('NO ROUTEEEEEEEE');
+            //return new RedirectResponse($this->generateUrl('home'));
         }
 
-        $prod = $em->getRepository(Product::class)->findProductsByTitleEng($animal, $category, $subcategory);
-
-        var_dump($cat);
-        var_dump($sub);
-        var_dump($prod);
-        var_dump($language);
+        $products = $em->getRepository(Product::class)->findProductsByTitleEng($animal, $category, $subcategory);
 
         return $this->render(
-            $this->createView('eng', $category)
+            $this->createView($lang, $category),
+            array(
+                'urlEng'   => $this->generateUrl('products', array(
+                    'lang'        => 'eng',
+                    'animal'      => $animal,
+                    'category'    => $category,
+                    'subcategory' => $subcategory,
+                )),
+                'urlSrp'   => $this->generateUrl('products', array(
+                    'lang'        => 'srp',
+                    'animal'      => $animal,
+                    'category'    => $category,
+                    'subcategory' => $subcategory,
+                )),
+                'products' => $products,
+            )
         );
     }
 
