@@ -54,7 +54,7 @@
 
 
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header" style = "background-color: #fff;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -62,7 +62,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the specificCategory is collapsed -->
-                <a class="navbar-brand" href="{{ path('home') }}">Mr. & Mrs. Pet</a>
+                <a class=" navbar-brand" href="{{ path('home') }}" style="padding:0;"><img src="{{ asset('img/logo.jpg') }}" style = " max-width: 100px;max-height: 50px ;min-width: 100px ; min-height: 50px ;" alt=""></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="main-menu"  style = "background-color:white;">
@@ -105,30 +105,56 @@
                         <ul class="my-dropdown-menu nav navbar-nav ">
 
                             <li>
-                                <a href="{{ path('clothes') }}">CLOTHES</a>
+                                <a href="{{ path('clothes') }}">
+                                    <img src="{{ asset('img/clothes.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                   APPAREL</a>
                             </li>
                             <li>
-                                <a href="{{ path('beds') }}">BEDS</a>
+                                <a href="{{ path('beds') }}">
+                                    <img src="{{ asset('img/bedding.jpg') }}" class="my-logo" alt="">
+                                   <br/>
+                                    BEDDING
+                                </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('spa') }}">SPA</a>
+                                <a href="{{ path('spa') }}"><img src="{{ asset('img/spa.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    SPA
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('toys') }}">TOYS</a>
+                                <a href="{{ path('toys') }}"><img src="{{ asset('img/toys.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    TOYS
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('accessories') }}">ACCESSORIES</a>
+                                <a href="{{ path('accessories') }}">
+                                    <img src="{{ asset('img/accessories.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    ACCESSORIES
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('bolls') }}">BOLLS</a>
+                                <a href="{{ path('bolls') }}"><img src="{{ asset('img/feeding.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    FEEDING
+                                </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('food') }}">FOOD</a>
+                                <a href="{{ path('food') }}"><img src="{{ asset('img/food.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    FOOD
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('cats') }}">CATS</a>
+                                <a href="{{ path('cats') }}"><img src="{{ asset('img/cats.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    CATS
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -159,13 +185,16 @@
 {% block footer %}
 <div class="container">
 
+
         <div class="my-down-menu">
+
             <a href="{{ path('home') }}">HOME</a>
             <a href="{{ path('products') }}">PRODUCTS</a>
             <a href="{{ path('about') }}">ABOUT US</a>
             <a href="{{ path('contact') }}">CONTACT US</a>
             <br/>
-            <p> Copyright &copy; pigeon </p>
+            <p> Copyright &copy; Marija Janković & Marko Kastratović  </p>
+
         </div>
 </div>
     {% endblock %}

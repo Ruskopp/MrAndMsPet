@@ -2,16 +2,23 @@
  * Start Bootstrap - Business Casual (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+*
+ *    background: url('../img/unnamed.jpg') no-repeat center center fixed;
+  *  -webkit-background-size: cover;
+  *  -moz-background-size: cover;
+  *  background-size: cover;
+  *  -o-background-size: cover;
+*}
  */
 
-
 body {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/unnamed.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    
+
+    background-color: white ;
+
+
 }
 
 h1,
@@ -21,7 +28,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -80,9 +87,8 @@ hr {
 
 .box {
 
-
     background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding-top: 0px;
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -108,7 +114,7 @@ hr {
 
 footer {
     background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 footer p {
@@ -116,14 +122,14 @@ footer p {
     padding: 25px 0;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
     .brand {
         display: inherit;
         margin: 0;
         padding: 30px 0 10px;
         text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 5em;
         font-weight: 700;
         line-height: normal;
@@ -144,7 +150,7 @@ footer p {
         margin: 0;
         padding: 0 0 40px;
         text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         text-transform: uppercase;
         font-size: 1.25em;
         font-weight: 400;
@@ -167,14 +173,14 @@ footer p {
     .navbar-default {
         border: none;
         background: #fff;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255, 255, 255, 0.9);
     }
 
-    .nav>li>a {
+    .nav > li > a {
         padding: 35px;
     }
 
-    .navbar-nav>li>a {
+    .navbar-nav > li > a {
         line-height: normal;
     }
 
@@ -187,7 +193,7 @@ footer p {
     }
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width: 1200px) {
     .box:after {
         content: '';
         display: table;

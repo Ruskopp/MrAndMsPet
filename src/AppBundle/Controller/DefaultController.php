@@ -53,7 +53,7 @@ class DefaultController extends Controller
      */
     public function productsAction(Request $request)
     {
-        return $this->render('eng/products.html.twig');
+        return $this->render('category.html.twig');
     }
 
     /**
@@ -76,7 +76,7 @@ class DefaultController extends Controller
      */
     public function clothes(Request $request)
     {
-        return $this->render('eng/specificCategory/clothes.html.twig');
+        return $this->render('apparel.html.twig');
     }
 
 
@@ -93,7 +93,7 @@ class DefaultController extends Controller
      */
     public function beds(Request $request)
     {
-        return $this->render('eng/specificCategory/beds.html.twig');
+        return $this->render('bedding.html.twig');
     }
 
     /**
@@ -101,7 +101,7 @@ class DefaultController extends Controller
      */
     public function bolls(Request $request)
     {
-        return $this->render('eng/specificCategory/bolls.html.twig');
+        return $this->render('feeding.html.twig');
     }
 
     /**

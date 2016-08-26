@@ -27,6 +27,10 @@
   width: 20%;
   height: 30%;
 }
+my-logo-togg {
+  width: 100%;
+  height: 100%;
+}
 .my-menu {
   width: 100%;
   margin: 0%;
@@ -37,6 +41,10 @@
   margin-left: auto;
   margin-right: auto;
   width: 25%;
+}
+.my-menu li a {
+  padding-top: 0;
+  padding-bottom: 5%;
 }
 .my-hr {
   border-bottom-style: solid;
@@ -77,7 +85,17 @@
   background-color: #feffff !important;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 3%;
+  padding-bottom: 3%;
   width: 12.5%;
+}
+.my-dropdown-menu li a {
+  padding: 0;
+  font-size: 0.9em !important;
+}
+.my-dropdown-menu li a img {
+  width: 100%;
+  height: 100%;
 }
 .my-home-box {
   width: 100%;
@@ -87,8 +105,8 @@
   background-color: #feffff;
 }
 .my-category-box {
-  width: 100%;
-  height: 300px;
+  width: 80%;
+  height: 130px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
@@ -125,4 +143,10 @@
 }
 .my-footer {
   text-align: center;
+}
+.my-product-image {
+  min-width: 300px;
+  min-height: 400px;
+  max-width: 300px;
+  max-height: 400px;
 }
