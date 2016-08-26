@@ -30,6 +30,14 @@
   width: 20%;
   height: 30%;
 }
+
+.my-logo-small{
+    max-width: 200px !important;
+    max-height: 50px  !important;
+    min-width: 200px !important;
+    min-height: 50px !important;
+    display:inline;
+}
 .my-menu {
   width: 100%;
   margin: 0%;

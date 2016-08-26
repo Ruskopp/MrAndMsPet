@@ -85,12 +85,13 @@ my-logo-togg {
   background-color: #feffff !important;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   width: 12.5%;
 }
 .my-dropdown-menu li a {
   padding: 0;
+  font-size: 0.9em !important;
 }
 .my-dropdown-menu li a img {
   width: 100%;
@@ -104,8 +105,8 @@ my-logo-togg {
   background-color: #feffff;
 }
 .my-category-box {
-  width: 100%;
-  height: 300px;
+  width: 80%;
+  height: 130px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
@@ -142,4 +143,10 @@ my-logo-togg {
 }
 .my-footer {
   text-align: center;
+}
+.my-product-image {
+  min-width: 300px;
+  min-height: 400px;
+  max-width: 300px;
+  max-height: 400px;
 }

@@ -91,7 +91,6 @@
 
         </nav>
 
-
         <div id="reaction" style="display:none">
             <div class="my-dropdown-content my-dropdown-contennt-container">
                 <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0 ">
@@ -105,30 +104,56 @@
                         <ul class="my-dropdown-menu nav navbar-nav ">
 
                             <li>
-                                <a href="{{ path('clothes') }}">ODECA</a>
+                                <a href="{{ path('clothes') }}">
+                                    <img src="{{ asset('img/clothes.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    ODEĆA</a>
                             </li>
                             <li>
-                                <a href="{{ path('beds') }}">KREVETI</a>
+                                <a href="{{ path('beds') }}">
+                                    <img src="{{ asset('img/bedding.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    KREVETI
+                                </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('spa') }}">SPA</a>
+                                <a href="{{ path('spa') }}"><img src="{{ asset('img/spa.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    SPA
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('toys') }}">IGRAČKE</a>
+                                <a href="{{ path('toys') }}"><img src="{{ asset('img/toys.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    IGRAČKE
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('accessories') }}">AKSESOARI</a>
+                                <a href="{{ path('accessories') }}">
+                                    <img src="{{ asset('img/accessories.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    AKSESOARI
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('bolls') }}">POSUDE</a>
+                                <a href="{{ path('bolls') }}"><img src="{{ asset('img/feeding.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    POSUDE
+                                </a>
 
                             </li>
                             <li>
-                                <a href="{{ path('food') }}">HRANA</a>
+                                <a href="{{ path('food') }}"><img src="{{ asset('img/food.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    HRANA
+                                </a>
                             </li>
                             <li>
-                                <a href="{{ path('cats') }}">MAČKE</a>
+                                <a href="{{ path('cats') }}"><img src="{{ asset('img/cats.jpg') }}" class="my-logo" alt="">
+                                    <br/>
+                                    MAČKE
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -165,7 +190,7 @@
             <a href="{{ path('about') }}">O NAMA</a>
             <a href="{{ path('contact') }}">KONTAKT</a>
             <br/>
-            <p> Copyright &copy; pigeon </p>
+            <p> Copyright &copy; Marija Janković i Marko Kastratović </p>
         </div>
 </div>
     {% endblock %}
