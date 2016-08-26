@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="ProductRepository")
  * @ORM\Table(name="products")
  */
 class Product

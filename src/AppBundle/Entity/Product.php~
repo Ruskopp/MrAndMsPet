@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="ProductRepository")
  * @ORM\Table(name="products")
  */
 class Product
@@ -425,5 +425,29 @@ class Product
     public function getTitleSrp()
     {
         return $this->titleSrp;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     *
+     * @return Product
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }
