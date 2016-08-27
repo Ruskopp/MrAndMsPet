@@ -4,28 +4,58 @@
 
 
 
-        <div class="col-md-3">
+    <div class="col-md-3">
 
-            <div class=" my-subcategory-div list-group">
+        <div class=" my-subcategory-div list-group">
 
-                <a href="#" class="my-subcategory list-group-item">ALL PRODUCTS</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">COLLARS</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">TOYS</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">BEDDING</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">FEEDING</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">FOOD</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">PROTECTION</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">SPA</a>
+            <a href="#" class="my-subcategory list-group-item">ALL PRODUCTS</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'necklace'
+            }) }}" class="my-subcategory list-group-item">NECKLACE</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'toys'
+            }) }}" class="my-subcategory list-group-item">TOYS</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'bedding'
+            }) }}" class="my-subcategory list-group-item">BEDDING</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'feeding'
+            }) }}" class="my-subcategory list-group-item">FEEDING</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'food'
+            }) }}" class="my-subcategory list-group-item">FOOD</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'protection'
+
+            }) }}" class="my-subcategory list-group-item">PROTECTION</a>
+            <hr style="margin-right: 10%;"/>
+            <a href="{{ path('all_products', {
+                'lang':'eng',
+                'animal' : 'cat',
+                'category' : 'spa'
+
+            }) }}" class="my-subcategory list-group-item">SPA</a>
 
 
-            </div>
         </div>
+    </div>
 
 {% endblock %}

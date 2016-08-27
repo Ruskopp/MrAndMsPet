@@ -8,7 +8,13 @@
 
             <div class=" my-subcategory-div list-group">
 
-                <a href="#" class="my-subcategory list-group-item">ALL PRODUCTS</a>
+                <a href="{{ path('all_products', {
+                    'lang':'eng',
+                    'animal' : 'dog',
+                    'category' : 'feeding',
+                    'subcategory':'none'
+
+                }) }}" class="my-subcategory list-group-item">ALL PRODUCTS</a>
                 <hr style="margin-right: 10%;"/>
                 <a href="#" class="my-subcategory list-group-item">SPECIAL EDITION</a>
 

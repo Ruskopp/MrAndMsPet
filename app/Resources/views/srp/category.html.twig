@@ -3,49 +3,101 @@
 {% block body %}
 
 
-            <div class="my-row row">
+    <div class="my-row row" >
 
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'apparel'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/clothes.jpg') }}"/>
+            </a>
+        </div>
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'bedding'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/bedding.jpg') }}"/>
+            </a>
+        </div>
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
-            </div>
-            <div class="my-row row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'spa'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/spa.jpg') }}"/>
+            </a>
+        </div>
+    </div>
+    <div class="my-row row">
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'toys'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/toys.jpg') }}"/>
+            </a>
+        </div>
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'accessories'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/accessories.jpg') }}"/>
+            </a>
+        </div>
 
 
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="#">
-                        <img class="my-category-box" src="{{ asset('img/FuzzYard-Category-Bedding.jpg') }}"/>
-                    </a>
-                </div>
-            </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'feeding'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/feeding.jpg') }}"/>
+            </a>
+        </div>
+    </div>
+    <div class="my-row row">
 
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'dog',
+                'category' : 'food'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/food.jpg') }}"/>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="#">
+
+            </a>
+        </div>
+
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <a href="{{ path('all_products', {
+                'lang':'srp',
+                'animal' : 'cat',
+                'category' : 'none'
+            }) }}">
+                <img class="my-category-box" src="{{ asset('img/cats.jpg') }}"/>
+            </a>
+        </div>
+    </div>
 
 {% endblock %}
 
