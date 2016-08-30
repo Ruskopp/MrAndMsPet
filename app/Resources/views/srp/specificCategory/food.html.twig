@@ -8,12 +8,6 @@
 
             <div class=" my-subcategory-div list-group">
 
-                <a href="#" class="my-subcategory list-group-item">SVI PROIZVODI</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">POSLASTICE</a>
-                <hr style="margin-right: 10%;"/>
-                <a href="#" class="my-subcategory list-group-item">SUPLEMENTI</a>
-
                 <a href="{{ path('all_products', {
                     'lang':'srp',
                     'animal' : 'dog',
@@ -22,7 +16,7 @@
 
                 }) }}" class="my-subcategory list-group-item">SVI PROIZVODI</a>
                 <hr style="margin-right: 10%;"/>
-                <a href="{{ path('all_products', {
+                <a href="{{ path('products', {
                     'lang':'srp',
                     'animal' : 'dog',
                     'category' : 'food',
@@ -30,7 +24,7 @@
 
                 }) }}" class="my-subcategory list-group-item">POSLASTICE</a>
                 <hr style="margin-right: 10%;"/>
-                <a href="{{ path('all_products', {
+                <a href="{{ path('products', {
                     'lang':'srp',
                     'animal' : 'dog',
                     'category' : 'food',

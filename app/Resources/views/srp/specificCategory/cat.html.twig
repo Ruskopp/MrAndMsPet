@@ -1,0 +1,64 @@
+{% extends 'srp/categoryTemplate.html.twig' %}
+
+{% block menu %}
+
+
+
+        <div class="col-md-3">
+
+            <div class=" my-subcategory-div list-group">
+
+
+                <a href="{{ path('all_cat', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                }) }}" class="my-subcategory list-group-item">SVI PROIZVODI</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'necklace'
+                }) }}" class="my-subcategory list-group-item">OGRLICE</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'toys'
+                }) }}" class="my-subcategory list-group-item">IGRAČKE</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'bedding'
+                }) }}" class="my-subcategory list-group-item">KREVETI</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'feeding'
+                }) }}" class="my-subcategory list-group-item">POSUDE</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'food'
+                }) }}" class="my-subcategory list-group-item">HRANA</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'protection'
+
+                }) }}" class="my-subcategory list-group-item">ZAŠTITA</a>
+                <hr style="margin-right: 10%;"/>
+                <a href="{{ path('all_products', {
+                    'lang':'srp',
+                    'animal' : 'cat',
+                    'category' : 'spa'
+
+                }) }}" class="my-subcategory list-group-item">SPA</a>
+                
+            </div>
+        </div>
+
+{% endblock %}

@@ -76,6 +76,44 @@ class DefaultController extends Controller
         ));
     }
 
+
+    /**
+     * @Route(
+     *     "/products/{animal}",
+     *     name="all_cat",
+     *     requirements={"animal":"cat|dog"}
+     * )
+     *
+     * @param $lang
+     * @param $animal
+     * @return Response
+     */
+    public function animalAction($lang, $animal)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $products = $em->getRepository(Product::class)->findProductsByAnimal($animal);
+
+        return $this->render(
+            $this->createView($lang, $animal),
+            array(
+                'urlEng'   => $this->generateUrl('all_cat', array(
+                    'lang'     => 'eng',
+                    'animal'   => $animal,
+                )),
+                'urlSrp'   => $this->generateUrl('all_cat', array(
+                    'lang'     => 'srp',
+                    'animal'   => $animal,
+                )),
+                'products' => $products,
+            )
+        );
+    }
+
+
+
+
+
     /**
      * @Route(
      *     "/products/{animal}/{category}",
@@ -99,6 +137,20 @@ class DefaultController extends Controller
         }
 
         $products = $em->getRepository(Product::class)->findProductsByTitleEngAll($animal, $category);
+
+        if($animal == "cat") return $this->render( $this->createView($lang, $animal),
+            array(
+                'urlEng'   => $this->generateUrl('all_cat', array(
+                    'lang'        => 'eng',
+                    'animal'      => $animal,
+                )),
+                'urlSrp'   => $this->generateUrl('all_cat', array(
+                    'lang'        => 'srp',
+                    'animal'      => $animal,
+                )),
+                'products' => $products,
+            ));
+
 
         return $this->render(
             $this->createView($lang, $category),
@@ -143,6 +195,7 @@ class DefaultController extends Controller
         }
 
         $products = $em->getRepository(Product::class)->findProductsByTitleEng($animal, $category, $subcategory);
+
 
         return $this->render(
             $this->createView($lang, $category),
