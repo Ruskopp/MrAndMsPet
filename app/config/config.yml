@@ -38,6 +38,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        products_dir: 'uploads/products/'
 
 # Doctrine Configuration
 doctrine:
@@ -93,4 +95,15 @@ sonata_admin:
                 type: sonata.admin.block.admin_list
 
 
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [400, 300], mode: outbound }
 
