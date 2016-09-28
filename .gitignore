@@ -67,5 +67,5 @@ fabric.properties
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
-/web/uploads/
-/web/media/
+/web/uploads/products/*
+/web/media/*
