@@ -10,20 +10,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductRepository extends EntityRepository
 {
-    public function findProductsByAnimal($animal){
+    public function findProductsByAnimal($animal)
+    {
         return $this->createQueryBuilder('p')
             ->join('p.subcategory', 's')
             ->join('s.category', 'c')
             ->join('c.animal', 'a')
             ->andWhere('a.titleEng = :animal')
             ->setParameters(array(
-                'animal'      => $animal,
+                'animal' => $animal,
             ))
             ->getQuery()
             ->getResult();
-
-
     }
+
     public function findProductsByTitleEng($animal, $category, $subcategory)
     {
         return $this->createQueryBuilder('p')
@@ -51,8 +51,8 @@ class ProductRepository extends EntityRepository
             ->andWhere('c.titleEng = :category')
             ->andWhere('a.titleEng = :animal')
             ->setParameters(array(
-                'category'    => $category,
-                'animal'      => $animal,
+                'category' => $category,
+                'animal'   => $animal,
             ))
             ->getQuery()
             ->getResult();

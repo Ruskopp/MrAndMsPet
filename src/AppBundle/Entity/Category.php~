@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="CategoryRepository")
  * @ORM\Table(name="categories")
  */
 class Category
