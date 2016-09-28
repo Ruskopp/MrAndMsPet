@@ -8,14 +8,14 @@
                 {% if category is defined %}
 
                     <a href="{{ path('dog_products', {
-                        'lang':'srp',
+                        'lang':'eng',
                         'category' : category,
                     }) }}" class="my-subcategory list-group-item">ALL PRODUCTS</a>
 
                     {% for menuitem in menuitems %}
                         <hr style="margin-right: 10%;"/>
                         <a href="{{ path('dog_products', {
-                            'lang':'srp',
+                            'lang':'eng',
                             'category' : menuitem.category.titleEng,
                             'subcategory': menuitem.titleEng
                         }) }}" class="my-subcategory list-group-item">{{ menuitem.titleEng | upper }}</a>
@@ -24,13 +24,13 @@
                 {% else %}
 
                     <a href="{{ path('cat_products', {
-                        'lang':'srp',
+                        'lang':'eng',
                     }) }}" class="my-subcategory list-group-item">SVI PROIZVODI</a>
 
                     {% for menuitem in menuitems %}
                         <hr style="margin-right: 10%;"/>
                         <a href="{{ path('cat_products', {
-                            'lang':'srp',
+                            'lang':'eng',
                             'category' : menuitem.titleEng,
                         }) }}" class="my-subcategory list-group-item">{{ menuitem.titleSr | upper }}</a>
                     {% endfor %}
