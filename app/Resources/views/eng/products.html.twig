@@ -28,14 +28,14 @@
 
                     <a href="{{ path('cat_products', {
                         'lang':'eng',
-                    }) }}" class="my-subcategory list-group-item">SVI PROIZVODI</a>
+                    }) }}" class="my-subcategory list-group-item">ALL PRODUCTS</a>
 
                     {% for menuitem in menuitems %}
                         <hr style="margin-right: 10%;"/>
                         <a href="{{ path('cat_products', {
                             'lang':'eng',
                             'category' : menuitem.titleEng,
-                        }) }}" class="my-subcategory list-group-item">{{ menuitem.titleSr | upper }}</a>
+                        }) }}" class="my-subcategory list-group-item">{{ menuitem.titleEng | upper }}</a>
                     {% endfor %}
 
                 {% endif %}
@@ -43,7 +43,15 @@
         </div>
 
         <div class="col-md-9 col-sm-9 col-xs-12">
+                {% set i = 0 %}
+
             {% for product in  products %}
+
+                {% if (i % 3 == 0) %}
+                <div class='row'>
+                    {% endif %}
+
+                    {% set i = i+1 %}
 
 
                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -53,16 +61,17 @@
                             <img class="img-responsive" src="{{ (products_dir ~ product.image ) | imagine_filter('my_thumb') }}">
                         </a>
                         <div class="caption">
-                            <h4>{{ product.titleEng }}
+                            <h5>{{ product.titleEng }}
                                 <br/>
                                 <h4 class="pull-right"> {{ product.price }} rsd.</h4>
                                 <br/>
-                            </h4>
+                            </h5>
 
                         </div>
 
                     </div>
                 </div>
+                {% if (i % 3 == 0 ) %} </div> {% endif %}
             {% endfor %}
         </div>
 

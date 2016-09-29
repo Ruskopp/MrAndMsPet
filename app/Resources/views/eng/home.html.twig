@@ -4,12 +4,18 @@
 
             <div class="my-row row">
 
-                <div class="col-md-offset-2 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-offset-2 col-md-4 col-sm-4 col-xs-6">
+                    <a href="{{ path('category', {'lang' : 'eng'}) }}">
                     <img class="my-home-box" src="{{ asset('img/kuc.jpg') }}"/>
+                    </a>
                 </div>
 
-                <div class="col-md-offset-0 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-offset-0 col-md-4 col-sm-4 col-xs-6">
+                    <a href="{{ path('cat_products', {
+                        'lang':'eng',
+                    }) }}">
                     <img class="my-home-box" src="{{ asset('img/mac.jpg') }}"/>
+                        </a>
                 </div>
 
              </div>
