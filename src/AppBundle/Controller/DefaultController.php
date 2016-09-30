@@ -5,11 +5,13 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Subcategory;
+use AppBundle\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @Route(
@@ -66,13 +68,26 @@ class DefaultController extends Controller
      * @Route("/contact", name="contact")
      *
      * @param $lang
+     * @param Request $request
      * @return Response
      */
-    public function contactAction($lang)
+    public function contactAction($lang,Request $request)
     {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $name = $form->get('name')->getData();
+            $email = $form->get('email')->getData();
+            $message = $form->get('message')->getData();
+
+
+        }
+
         return $this->render($lang . '/contact.html.twig', array(
             'urlEng' => $this->generateUrl('contact', array('lang' => 'eng')),
             'urlSrp' => $this->generateUrl('contact', array('lang' => 'srp')),
+            'form' => $form->createView(),
         ));
     }
 

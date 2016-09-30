@@ -33,7 +33,6 @@
                 </div>
             </div>
 
-
             <div class="my-row row">
                 <div class="box">
                     <div class="col-md-12">
@@ -57,31 +56,31 @@
                                 <br/>
                                 <br/>
 
-                                <form role="form">
+
                                     <div class="my-row row">
+                                        {{ form_start(form, {'action':  path('contact',  {'lang': 'eng'}) }) }}
+
                                         <div class="form-group col-lg-4">
                                             <label>Name</label>
-                                            <input type="text" class="form-control">
+                                            {{ form_row(form.name) }}
                                         </div>
                                         <div class="form-group col-lg-4">
                                             <label>Email</label>
-                                            <input type="email" class="form-control">
+                                            {{ form_row(form.email) }}
                                         </div>
-                                        <div class="form-group col-lg-4">
-                                            <label> Phone</label>
-                                            <input type="tel" class="form-control">
-                                        </div>
+
                                         <div class="clearfix"></div>
                                         <div class="form-group col-lg-12">
                                             <label>Message for us</label>
-                                            <textarea class="form-control" rows="6"></textarea>
+                                           {{ form_row(form.message) }}
                                         </div>
                                         <div class="form-group col-lg-12">
-                                            <input type="hidden" name="save" value="contact">
+
                                             <button type="submit" class="btn btn-default">Send</button>
                                         </div>
+                                        {{ form_end(form) }}
                                     </div>
-                                </form>
+
                             </div>
                         </div>
                     </div>
