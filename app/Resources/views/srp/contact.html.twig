@@ -50,39 +50,38 @@
                                     <strong>Kontaktirajte nas !</strong>
                                 </h2>
                                 <hr>
-                                <p> Ukoliko imate pitanja ili sugestije u cilju našeg boljeg poslovanja i međusobne
-                                    saradnje
-                                    voleli bismo da nas kontaktirate! </p>
+                                <p class="text-center">
+                                    {{ message }}
+                                </p>
 
                                 <br/>
                                 <br/>
 
-                                <form role="form">
-                                    <div class="my-row row">
-                                        <div class="form-group col-lg-4">
-                                            <label>Ime</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group col-lg-4">
-                                            <label>Email adresa</label>
-                                            <input type="email" class="form-control">
-                                        </div>
-                                        <div class="form-group col-lg-4">
-                                            <label> Telefonski broj</label>
-                                            <input type="tel" class="form-control">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-lg-12">
-                                            <label>Poruka za nas</label>
-                                            <textarea class="form-control" rows="6"></textarea>
-                                        </div>
-                                        <div class="form-group col-lg-12">
-                                            <input type="hidden" name="save" value="contact">
-                                            <button type="submit" class="btn btn-default">Pošalji</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                {{ form_start(form, {'action':  path('contact',  {'lang': 'srp'}) }) }}
+
+                                <div class="form-group col-lg-4">
+
+                                    {{ form_row(form.ime,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+                                <div class="form-group col-lg-4">
+
+                                    {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="form-group col-lg-12">
+
+                                    {{ form_row(form.poruka, {'attr': {'class': 'form-control','rows': '6' }}) }}
+                                </div>
+                                <div class="form-group col-lg-12">
+
+                                    <button type="submit" class="btn btn-default">Pošalji</button>
+                                </div>
+                                {{ form_end(form) }}
                             </div>
+
+
+                         </div>
                         </div>
                     </div>
                 </div>

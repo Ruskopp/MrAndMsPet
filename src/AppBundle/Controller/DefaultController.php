@@ -7,6 +7,8 @@ use AppBundle\Entity\Product;
 use AppBundle\Entity\Subcategory;
 use AppBundle\Form\ContactType;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use AppBundle\Form\ContactEngType;
+use AppBundle\Form\ContactSrpType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,22 +76,62 @@ class DefaultController extends Controller
      */
     public function contactAction($lang, Request $request)
     {
-        $form = $this->createForm(ContactType::class);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $name = $form->get('name')->getData();
-            $email = $form->get('email')->getData();
-            $message = $form->get('message')->getData();
+        if ($lang == 'eng') {
+            $form = $this->createForm(ContactEngType::class);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $name = $form->get('name')->getData();
+                $email = $form->get('email')->getData();
+                $message = $form->get('message')->getData();
 
 
+                $form = $this->createForm(ContactEngType::class);
+                return $this->render($lang . '/contact.html.twig', array(
+                    'urlEng'  => $this->generateUrl('contact', array('lang' => 'eng')),
+                    'urlSrp'  => $this->generateUrl('contact', array('lang' => 'srp')),
+                    'form'    => $form->createView(),
+                    'message' => 'Thank you for contacting us. We will be in touch shortly.'
+                ));
+
+            }
+
+            return $this->render($lang . '/contact.html.twig', array(
+                'urlEng'  => $this->generateUrl('contact', array('lang' => 'eng')),
+                'urlSrp'  => $this->generateUrl('contact', array('lang' => 'srp')),
+                'form'    => $form->createView(),
+                'message' => 'If you have any questions or suggestion please be free to contact us!'
+            ));
+        } else {
+            $form = $this->createForm(ContactSrpType::class);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $name = $form->get('ime')->getData();
+                $email = $form->get('email')->getData();
+                $message = $form->get('poruka')->getData();
+
+
+                $form = $this->createForm(ContactSrpType::class);
+                return $this->render($lang . '/contact.html.twig', array(
+                    'urlEng'  => $this->generateUrl('contact', array('lang' => 'eng')),
+                    'urlSrp'  => $this->generateUrl('contact', array('lang' => 'srp')),
+                    'form'    => $form->createView(),
+                    'message' => 'Hvala Vam što ste nas kontaktirali. Javićemo Vam se uskoro.'
+                ));
+
+            }
+
+            return $this->render($lang . '/contact.html.twig', array(
+                'urlEng'  => $this->generateUrl('contact', array('lang' => 'eng')),
+                'urlSrp'  => $this->generateUrl('contact', array('lang' => 'srp')),
+                'form'    => $form->createView(),
+                'message' => 'Ukoliko imate pitanja ili sugestije, molimo Vas ne ustručavajte se da nas kontaktirate!'
+            ));
         }
 
-        return $this->render($lang . '/contact.html.twig', array(
-            'urlEng' => $this->generateUrl('contact', array('lang' => 'eng')),
-            'urlSrp' => $this->generateUrl('contact', array('lang' => 'srp')),
-            'form'   => $form->createView(),
-        ));
+
     }
 
     /*****************************************************************************************************************/
