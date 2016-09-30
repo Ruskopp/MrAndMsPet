@@ -6,6 +6,7 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Subcategory;
 use AppBundle\Form\ContactType;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,7 +72,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function contactAction($lang,Request $request)
+    public function contactAction($lang, Request $request)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -87,7 +88,7 @@ class DefaultController extends Controller
         return $this->render($lang . '/contact.html.twig', array(
             'urlEng' => $this->generateUrl('contact', array('lang' => 'eng')),
             'urlSrp' => $this->generateUrl('contact', array('lang' => 'srp')),
-            'form' => $form->createView(),
+            'form'   => $form->createView(),
         ));
     }
 
@@ -122,14 +123,23 @@ class DefaultController extends Controller
             array(
                 'urlEng'    => $this->generateUrl('cat_products', array(
                     'lang'     => 'eng',
+                    'page'        => $page,
                     'category' => $category,
                 )),
                 'urlSrp'    => $this->generateUrl('cat_products', array(
                     'lang'     => 'srp',
+                    'page'        => $page,
                     'category' => $category,
                 )),
                 'products'  => $products,
                 'menuitems' => $menuitems,
+                'paginationlinks' => $this->createPaginationLinks(
+                    $products,
+                    'cat_products',
+                    $lang,
+                    $category,
+                    null
+                ),
             )
         );
     }
@@ -184,19 +194,28 @@ class DefaultController extends Controller
         return $this->render(
             $this->createView($lang),
             array(
-                'urlEng'    => $this->generateUrl('dog_products', array(
+                'urlEng'          => $this->generateUrl('dog_products', array(
                     'lang'        => 'eng',
+                    'page'        => $page,
                     'category'    => $category,
                     'subcategory' => $subcategory,
                 )),
-                'urlSrp'    => $this->generateUrl('dog_products', array(
+                'urlSrp'          => $this->generateUrl('dog_products', array(
                     'lang'        => 'srp',
+                    'page'        => $page,
                     'category'    => $category,
                     'subcategory' => $subcategory,
                 )),
-                'products'  => $products,
-                'menuitems' => $menuitems,
-                'category'  => $category,
+                'products'        => $products,
+                'menuitems'       => $menuitems,
+                'category'        => $category,
+                'paginationlinks' => $this->createPaginationLinks(
+                    $products,
+                    'dog_products',
+                    $lang,
+                    $category,
+                    $subcategory
+                ),
             )
         );
     }
@@ -214,5 +233,21 @@ class DefaultController extends Controller
             $language . '/products.html.twig';
 
         return $view;
+    }
+
+    private function createPaginationLinks(Paginator $p, $routeName, $lang, $category, $subcategory)
+    {
+        $links = array();
+
+        for ($i = 0; $i < ceil($p->count() / 9); $i++) {
+            $links[$i] = $this->generateUrl($routeName, array(
+                'lang'        => $lang,
+                'page'        => $i +1,
+                'category'    => $category,
+                'subcategory' => $subcategory,
+            ));
+        }
+
+        return $links;
     }
 }
