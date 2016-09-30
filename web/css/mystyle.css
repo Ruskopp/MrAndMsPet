@@ -27,7 +27,7 @@
   width: 30%;
   height: 55%;
 }
-my-logo-togg {
+.my-logo-togg {
   width: 100%;
   height: 100%;
 }
@@ -149,4 +149,17 @@ my-logo-togg {
   min-height: 400px;
   max-width: 300px;
   max-height: 400px;
+}
+.my-pagination {
+  text-align: center;
+  padding-bottom: 3%;
+  padding-top: 1%;
+}
+.my-pagination a {
+  margin-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: #777777 !important;
+  font-family: Calibri !important;
+  font-size: 1.5em;
 }
