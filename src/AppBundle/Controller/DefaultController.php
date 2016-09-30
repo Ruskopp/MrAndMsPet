@@ -95,22 +95,24 @@ class DefaultController extends Controller
 
     /**
      * @Route(
-     *     "/cat/{category}",
+     *     "/cat/{page}/{category}",
      *     name="cat_products",
+     *     defaults={"page": "1"},
      * )
      *
      * @param $lang
+     * @param $page
      * @param $category
      * @return Response
      */
-    public function animalAction($lang, $category = null)
+    public function animalAction($lang, $page, $category = null)
     {
         $em = $this->getDoctrine()->getManager();
 
         if ($category !== null) {
-            $products = $em->getRepository(Product::class)->findProductsByTitleEngAll('cat', $category);
+            $products = $em->getRepository(Product::class)->findProductsByTitleEngAll('cat', $category, $page);
         } else {
-            $products = $em->getRepository(Product::class)->findProductsByAnimal('cat');
+            $products = $em->getRepository(Product::class)->findProductsByAnimal('cat', $page);
         }
 
         $menuitems = $em->getRepository(Category::class)->findCategories('cat');
@@ -118,15 +120,15 @@ class DefaultController extends Controller
         return $this->render(
             $this->createView($lang),
             array(
-                'urlEng'   => $this->generateUrl('cat_products', array(
-                    'lang' => 'eng',
+                'urlEng'    => $this->generateUrl('cat_products', array(
+                    'lang'     => 'eng',
                     'category' => $category,
                 )),
-                'urlSrp'   => $this->generateUrl('cat_products', array(
-                    'lang' => 'srp',
+                'urlSrp'    => $this->generateUrl('cat_products', array(
+                    'lang'     => 'srp',
                     'category' => $category,
                 )),
-                'products' => $products,
+                'products'  => $products,
                 'menuitems' => $menuitems,
             )
         );
@@ -135,16 +137,18 @@ class DefaultController extends Controller
 
     /**
      * @Route(
-     *     "/dog/{category}/{subcategory}",
+     *     "/dog/{page}/{category}/{subcategory}",
      *     name="dog_products",
+     *     defaults={"page": "1"},
      * )
      *
      * @param $lang
+     * @param $page
      * @param $category
      * @param $subcategory
      * @return Response
      */
-    public function productsAction($lang, $category, $subcategory = null)
+    public function productsAction($lang, $page, $category, $subcategory = null)
     {
         $em = $this->getDoctrine()->getManager();
         $cat = $em->getRepository(Category::class)->findByTitleEng($category);
@@ -161,9 +165,18 @@ class DefaultController extends Controller
         }
 
         if ($subcategory !== null) {
-            $products = $em->getRepository(Product::class)->findProductsByTitleEng('dog', $category, $subcategory);
+            $products = $em->getRepository(Product::class)->findProductsByTitleEng(
+                'dog',
+                $category,
+                $subcategory,
+                $page
+            );
         } else {
-            $products = $em->getRepository(Product::class)->findProductsByTitleEngAll('dog', $category);
+            $products = $em->getRepository(Product::class)->findProductsByTitleEngAll(
+                'dog',
+                $category,
+                $page
+            );
         }
 
         $menuitems = $em->getRepository(Subcategory::class)->findSubcategories('dog', $category);
