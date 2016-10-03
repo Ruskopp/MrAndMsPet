@@ -86,7 +86,7 @@ class DefaultController extends Controller
                 $message = \Swift_Message::newInstance('Poruka sa sajta')
                     ->setFrom($email)
                     ->setTo(array("softwarepigeon@gmail.com" => "softwarepigeon@gmail.com"))
-                    ->setBody("<h3>Ime klijenta: $name</h3><br/><p>$messageForm</p>", 'text/html');
+                    ->setBody("<h3>Ime klijenta: $name</h3><br/><h3>Klijentov mail: $email</h3><br/><p>$messageForm</p>", 'text/html');
 
                 $this->get('mailer')->send($message);
 
@@ -118,7 +118,7 @@ class DefaultController extends Controller
                 $message = \Swift_Message::newInstance('Poruka sa sajta')
                     ->setFrom($email)
                     ->setTo(array("softwarepigeon@gmail.com" => "softwarepigeon@gmail.com"))
-                    ->setBody("<h3>Ime klijenta: $name</h3><br/><p>$messageForm</p>", 'text/html');
+                    ->setBody("<h3>Ime klijenta: $name</h3><br/><h3>Klijentov mail: $email</h3><br/><p>$messageForm</p>", 'text/html');
 
                 $this->get('mailer')->send($message);
 
