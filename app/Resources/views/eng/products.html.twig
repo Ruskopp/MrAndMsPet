@@ -78,9 +78,21 @@
             <div class="row" style="text-align:center">
                 <div class="my-pagination">
                     {% for key, link in paginationlinks %}
-                        <a href= {{ link }}>
-                            {{ key +1 }}
-                        </a>
+                        {% if ((key + 1)== page ) %}
+                            <u><b>
+                                    <a href= {{ link }}>
+
+                                        {{ key +1 }}
+                                    </a>
+                                </b>
+                            </u>
+
+                        {% else %}
+                            <a href= {{ link }}>
+
+                                {{ key +1 }}
+                            </a>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

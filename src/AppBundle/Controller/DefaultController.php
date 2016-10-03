@@ -182,6 +182,7 @@ class DefaultController extends Controller
                     $category,
                     null
                 ),
+                'page' => $page,
             )
         );
     }
@@ -258,6 +259,7 @@ class DefaultController extends Controller
                     $category,
                     $subcategory
                 ),
+                'page' => $page,
             )
         );
     }
