@@ -7,10 +7,10 @@
             <div class=" my-subcategory-div list-group">
 
                 {% if category is defined %}
-                {#
-                    If a category is defined, it means that this is a dog products page,
-                    but if not then it is cat product page
-                 #}
+                    {#
+                        If a category is defined, it means that this is a dog products page,
+                        but if not then it is cat product page
+                     #}
                     <a href="{{ path('dog_products', {
                         'lang':'srp',
                         'category' : category,
@@ -49,8 +49,8 @@
 
             {% for product in  products %}
 
-            {% if (i % 3 == 0) %}
-            <div class='row'>
+                {% if (i % 3 == 0) %}
+                    <div class='row'>
                 {% endif %}
 
                 {% set i = i+1 %}
@@ -71,8 +71,32 @@
 
                     </div>
                 </div>
-                {% if (i % 3 == 0 ) %} </div> {% endif %}
+                {% if (i % 3 == 0  or product == products|last ) %} </div> {% endif %}
             {% endfor %}
+
+            <div class="row" style="text-align:center">
+                <div class="my-pagination">
+                    {% for key, link in paginationlinks %}
+                        {% if ((key + 1)== page ) %}
+                       <u><b>
+                           <a href= {{ link }}>
+
+                            {{ key +1 }}
+                        </a>
+                           </b>
+                       </u>
+
+                    {% else %}
+                        <a href= {{ link }}>
+
+                            {{ key +1 }}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
         </div>
     </div>
 

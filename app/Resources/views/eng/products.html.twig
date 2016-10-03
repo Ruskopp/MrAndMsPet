@@ -6,10 +6,10 @@
 
             <div class=" my-subcategory-div list-group">
                 {% if category is defined %}
-                {#
-                    If a category is defined, it means that this is a dog products page,
-                    but if not then it is cat product page
-                 #}
+                    {#
+                        If a category is defined, it means that this is a dog products page,
+                        but if not then it is cat product page
+                     #}
                     <a href="{{ path('dog_products', {
                         'lang':'eng',
                         'category' : category,
@@ -43,22 +43,23 @@
         </div>
 
         <div class="col-md-9 col-sm-9 col-xs-12">
-                {% set i = 0 %}
+            {% set i = 0 %}
 
             {% for product in  products %}
 
                 {% if (i % 3 == 0) %}
-                <div class='row'>
-                    {% endif %}
+                    <div class='row'>
+                {% endif %}
 
-                    {% set i = i+1 %}
+                {% set i = i+1 %}
 
 
                 <div class="col-md-4 col-sm-4 col-xs-12">
 
                     <div class="thumbnail">
                         <a class="thumbnail" href="#">
-                            <img class="img-responsive" src="{{ (products_dir ~ product.image ) | imagine_filter('my_thumb') }}">
+                            <img class="img-responsive"
+                                 src="{{ (products_dir ~ product.image ) | imagine_filter('my_thumb') }}">
                         </a>
                         <div class="caption">
                             <h5>{{ product.titleEng }}
@@ -71,45 +72,30 @@
 
                     </div>
                 </div>
-                {% if (i % 3 == 0 ) %} </div> {% endif %}
+                {% if (i % 3 == 0 or product == products|last) %} </div> {% endif %}
             {% endfor %}
 
-      <div class = "row" style = "text-align:center">
-          <div class="my-pagination">
+            <div class="row" style="text-align:center">
+                <div class="my-pagination">
+                    {% for key, link in paginationlinks %}
+                        {% if ((key + 1)== page ) %}
+                            <u><b>
+                                    <a href= {{ link }}>
 
-              <a href = # >
-                  1
-              </a>
-              <a href = #>
-                  2
-              </a>
-              <a href = #>
-                  3
-              </a>
+                                        {{ key +1 }}
+                                    </a>
+                                </b>
+                            </u>
 
-              <a href = # >
-                  1
-              </a>
-              <a href = #>
-                  2
-              </a>
-              <a href = #>
-                  3
-              </a>
-              <a href = # >
-                  1
-              </a>
-              <a href = #>
-                  2
-              </a>
-              <a href = #>
-                  3
-              </a>
+                        {% else %}
+                            <a href= {{ link }}>
 
-          </div>
-
-
-      </div>
+                                {{ key +1 }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
 
         </div>
 

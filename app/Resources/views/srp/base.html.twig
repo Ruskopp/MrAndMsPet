@@ -39,10 +39,12 @@
 <div class="container">
     <div class=" my-language">
         <ul>
+
             <li><a href="{{ urlEng }}">ENG</a></li>
             <li><a href="{{ urlSrp }}">SRP</a></li>
         </ul>
     </div>
+
 
     <div class="my-brand brand"><img src="{{ asset('img/logo.jpg') }}" class="my-logo" alt="">
     </div>
@@ -206,7 +208,8 @@
 
 {% block footer %}
     <div class="container">
-
+        <a href="https://www.instagram.com/mr.andmrs.pet/" class="text-center" target="_blank"><img src="{{ asset('img/InstagramNovi.png') }}"  alt=""></a>
+        <br/>
         <div class="my-down-menu">
             <a href="{{ path('home', {'lang' : 'srp'}) }}">POČETNA</a>
             <a href="{{ path('category', {'lang' : 'srp'}) }}">PROIZVODI</a>
