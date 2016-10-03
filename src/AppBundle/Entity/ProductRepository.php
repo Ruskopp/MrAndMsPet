@@ -18,6 +18,8 @@ class ProductRepository extends EntityRepository
             ->join('s.category', 'c')
             ->join('c.animal', 'a')
             ->andWhere('a.titleEng = :animal')
+            ->addSelect('(CASE WHEN c.titleEng = \'none\' then 0 ELSE 1 END) AS HIDDEN none_first')
+            ->addOrderBy('none_first')
             ->setParameters(array(
                 'animal' => $animal,
             ))
@@ -53,6 +55,8 @@ class ProductRepository extends EntityRepository
             ->join('c.animal', 'a')
             ->andWhere('c.titleEng = :category')
             ->andWhere('a.titleEng = :animal')
+            ->addSelect('(CASE WHEN s.titleEng = \'none\' then 0 ELSE 1 END) AS HIDDEN none_first')
+            ->addOrderBy('none_first')
             ->setParameters(array(
                 'category' => $category,
                 'animal'   => $animal,
