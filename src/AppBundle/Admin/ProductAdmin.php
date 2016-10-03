@@ -33,6 +33,7 @@ class ProductAdmin extends AbstractAdmin
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request_stack')->getCurrentRequest()->getBaseUrl() . '/../..' .
                 $container->getParameter('products_web_directory') . '/' . $image;
+            //delete one '/..' when uploading on live
             // add a 'help' option containing the preview's img tag
             $fileFieldOptions['help'] =
                 '<img src="' . $fullPath . '" class="admin-preview" style="max-height: 200px; max-width: 200px;"/>';
