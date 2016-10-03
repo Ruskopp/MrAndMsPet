@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route(
  *     "/{lang}",
@@ -82,8 +81,14 @@ class DefaultController extends Controller
             if ($form->isSubmitted() && $form->isValid()) {
                 $name = $form->get('name')->getData();
                 $email = $form->get('email')->getData();
-                $message = $form->get('message')->getData();
+                $messageForm = $form->get('message')->getData();
 
+                $message = \Swift_Message::newInstance('Poruka sa sajta')
+                    ->setFrom($email)
+                    ->setTo(array("softwarepigeon@gmail.com" => "softwarepigeon@gmail.com"))
+                    ->setBody("<h3>Ime klijenta: $name</h3><br/><p>$messageForm</p>", 'text/html');
+
+                $this->get('mailer')->send($message);
 
                 $form = $this->createForm(ContactEngType::class);
                 return $this->render($lang . '/contact.html.twig', array(
@@ -108,7 +113,14 @@ class DefaultController extends Controller
             if ($form->isSubmitted() && $form->isValid()) {
                 $name = $form->get('ime')->getData();
                 $email = $form->get('email')->getData();
-                $message = $form->get('poruka')->getData();
+                $messageForm = $form->get('poruka')->getData();
+
+                $message = \Swift_Message::newInstance('Poruka sa sajta')
+                    ->setFrom($email)
+                    ->setTo(array("softwarepigeon@gmail.com" => "softwarepigeon@gmail.com"))
+                    ->setBody("<h3>Ime klijenta: $name</h3><br/><p>$messageForm</p>", 'text/html');
+
+                $this->get('mailer')->send($message);
 
 
                 $form = $this->createForm(ContactSrpType::class);
