@@ -67,8 +67,8 @@ doctrine:
 swiftmailer:
     transport:  smtp
     host:       smtp-relay.sendinblue.com
-    username:   jstk@live.com
-    password:   0xnzRsCcX63pkJDA
+    username:   softwarepigeon@gmail.com
+    password:   vrPbDIgwa9kx2TGh
     port:       587
 
 sonata_block:
